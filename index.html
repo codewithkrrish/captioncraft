@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CaptionCraft — Caption &amp; Hashtag Generator</title>
+  <meta name="description" content="CaptionCraft writes ready-to-post captions and hashtag sets for Instagram, X and LinkedIn. Pick a category and a tone, add your keyword, copy and post. Everything runs in your browser — nothing is uploaded or stored.">
+  <link rel="canonical" href="https://captioncraft-app.vercel.app/">
+  <meta name="theme-color" content="#0B0B0F">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CaptionCraft — Caption &amp; Hashtag Generator">
+  <meta property="og:description" content="Ready-to-post captions and hashtag sets for Instagram, X and LinkedIn. Pick a category and a tone, add your keyword, copy and post.">
+  <meta property="og:url" content="https://captioncraft-app.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CaptionCraft — Caption &amp; Hashtag Generator">
+  <meta name="twitter:description" content="Ready-to-post captions and hashtag sets for Instagram, X and LinkedIn. Pick a category and a tone, add your keyword, copy and post.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>CaptionCraft</h1>
+      <p class="tagline">Captions and hashtags, ready to post. Pick a category and a tone, add your keyword, copy and go.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel controls" aria-label="Caption controls">
+      <div class="field">
+        <label for="keyword-input">Keyword or topic</label>
+        <input id="keyword-input" type="text" placeholder="e.g. Goa, Sunday brunch, leg day" autocomplete="off" maxlength="120">
+        <p class="hint">Your keyword is woven into every caption. Leave it blank and a sensible default is used.</p>
+        <div id="sample-chips" class="chips" aria-label="Sample keywords"></div>
+      </div>
+
+      <div class="field">
+        <span class="field-label" id="category-label">Category</span>
+        <div id="category-pills" class="pills" role="group" aria-labelledby="category-label"></div>
+      </div>
+
+      <div class="field">
+        <span class="field-label" id="tone-label">Tone</span>
+        <div id="tone-pills" class="pills" role="group" aria-labelledby="tone-label"></div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="platform-select">Platform</label>
+          <select id="platform-select"></select>
+          <p class="hint">Sets the default hashtag count for that platform.</p>
+        </div>
+        <div class="field">
+          <label for="hashtag-count">Hashtags per caption</label>
+          <select id="hashtag-count"></select>
+        </div>
+      </div>
+
+      <div class="actions-row">
+        <button id="generate-btn" type="button" class="btn primary">Generate captions</button>
+        <button id="shuffle-btn" type="button" class="btn">Shuffle</button>
+        <button id="copy-all-btn" type="button" class="btn">Copy all sets</button>
+      </div>
+
+      <div class="field">
+        <label for="search-input">Search these captions</label>
+        <input id="search-input" type="search" placeholder="Type a word to filter the captions below" autocomplete="off">
+      </div>
+
+      <p id="copy-status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="results" aria-label="Generated captions">
+      <div class="results-head">
+        <h2>Your captions</h2>
+        <p id="captions-count" class="count"></p>
+      </div>
+      <p id="results-note" class="note"></p>
+      <div id="captions-list" class="captions-list"></div>
+    </section>
+
+    <section id="favourites-section" class="results" aria-label="Saved captions" hidden>
+      <div class="results-head">
+        <h2>Saved captions</h2>
+        <button id="clear-favourites-btn" type="button" class="btn small" hidden>Clear saved</button>
+      </div>
+      <div id="favourites-list" class="captions-list"></div>
+    </section>
+
+    <section id="history-section" class="results" aria-label="Recent generations" hidden>
+      <div class="results-head">
+        <h2>Recent generations</h2>
+        <button id="clear-history-btn" type="button" class="btn small" hidden>Clear history</button>
+      </div>
+      <ul id="history-list" class="history-list"></ul>
+    </section>
+
+    <section class="panel about" aria-label="How it works">
+      <h2>How it works</h2>
+      <p>CaptionCraft is a library of hand-written caption templates, organised by category and finished with a tone you choose. Your keyword is dropped into each template so the caption reads like it was written for your photo, not a generic post. Every caption comes with a matching hashtag set from a curated bank for that niche.</p>
+      <p>There is no account, no server and no upload: everything happens in your browser, and your saved captions and history never leave this device. Character counts are shown per caption, with a warning when a caption runs past the 280-character limit on X.</p>
+      <p>Honest limits: the captions are templates, not a writer. They are a starting point — edit the wording to sound like you before you post, and check that any hashtag still fits your audience.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Built by krrish · <a href="https://github.com/codewithkrrish/captioncraft">github.com/codewithkrrish/captioncraft</a> · <a href="https://www.instagram.com/krrishx.ai">Instagram</a></p>
+      <p class="privacy">Everything runs in your browser — nothing is uploaded or stored.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
